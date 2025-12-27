@@ -368,21 +368,12 @@ Depending on the project: CAD files, prototype(s), drawings, and a clean revisio
 <div class="card col-12">
 <h2 style="margin:0">Services</h2>
 <p class="lead" style="margin:10px 0 0">
-We work hand-in-hand with you to provide an innovative solution to your
-particular problem.
+End-to-end engineering design, CAD, prototyping, and small-batch manufacturing.
 </p>
 
-<p class="lead">
-You can either (1) submit the problem you are trying to solve and your
-solution idea, or (2) submit the problem alone and we'll come up with the
-solution.
-</p>
-
-<p class="lead">
-Either step will be preceded by an initial concept development, a full
-3D model, a first 3D printed prototype that will be shipped to you, and a
-final product based on your satisfaction with the prototype.
-</p>
+<a class="btn" href="services.html" style="margin-top:12px; display:inline-block">
+View services →
+</a>
 
 </div>
 
@@ -424,53 +415,19 @@ final product based on your satisfaction with the prototype.
 </section>
 
 <!-- =========================================================
-        EDIT: SUBMIT / CONTACT
+        CALL TO ACTION
         ========================================================= -->
-<section id="submit" class="grid">
-<div class="card col-12">
-<h2 style="margin:0">Submit a request</h2>
-<p class="lead" style="margin:10px 0 0">
-This form currently opens your email draft (no backend needed).
-</p>
-</div>
-
-<div class="card col-7">
-<!-- =========================================================
-            EDIT: CONTACT EMAIL
-            Replace hello@cre8pr.com with your real email address.
-            ========================================================= -->
-<form id="contactForm">
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-<div>
-<label for="name">Name</label>
-<input id="name" required placeholder="Your name" />
-</div>
-<div>
-<label for="email">Email</label>
-<input id="email" type="email" required placeholder="name@email.com" />
-</div>
-</div>
-
-<div>
-<label for="message">Describe your idea or problem</label>
-<textarea id="message" required placeholder="What do you want built? Any dimensions/materials? What does success look like?"></textarea>
-</div>
-
-<button class="btn" type="submit">Generate email</button>
-
-<p class="lead" style="margin:10px 0 0;font-size:13px">
-Tip: attach photos/sketches after your email app opens.
-</p>
-</form>
-</div>
-
-<div class="card col-5">
-<h3 style="margin:0 0 10px">Contact</h3>
-<p class="lead" style="margin:0">
-Email: <a href="mailto:juan.fadhel@nyu.edu">juan.fadhel@nyu.edu</a><br />
-Instagram: @juanfadhel 
-</p>
-</div>
+<section class="grid">
+  <div class="card col-12" style="text-align:center">
+    <h2 style="margin:0">Have a project in mind?</h2>
+    <p class="lead" style="margin:12px auto; max-width:60ch">
+      Tell us what you’re trying to build and we’ll help you take it
+      from idea to a real, manufacturable object.
+    </p>
+    <a class="btn" href="start.html" style="margin-top:12px">
+      Start a project
+    </a>
+  </div>
 </section>
 
 <!-- =========================================================
@@ -479,54 +436,18 @@ Instagram: @juanfadhel
 <footer>
 © <span id="year"></span> CRE8 PR · Puerto Rico
 </footer>
-
 </main>
 </div>
 
 <script>
-/* =========================================================
-    EDIT: CONTACT EMAIL (matches the visible link above)
-    ========================================================= */
-const CONTACT_TO = "hello@cre8pr.com";
-
-/* This makes the footer year always correct */
-document.getElementById("year").textContent = new Date().getFullYear();
-
-/* =========================================================
-    FORM BEHAVIOR
-    - When you click "Generate email", it opens an email draft.
-    - Later, if you want a real backend form (no email app),
-      tell me and I’ll convert it to a proper form submit.
-    ========================================================= */
-document.getElementById("contactForm").addEventListener("submit", (e) => {
-e.preventDefault();
-
-const name = document.getElementById("name").value.trim();
-const email = document.getElementById("email").value.trim();
-const message = document.getElementById("message").value.trim();
-
-const subject = `CRE8 PR request — ${name}`;
-const body =
-`Hi CRE8 PR,
-
-My name is ${name} (${email}).
-
-REQUEST
-${message}
-
-(You can reply here with any questions, timeline, and a rough quote.)
-
-Thanks,
-${name}`;
-
-const mailto = `mailto:${encodeURIComponent(CONTACT_TO)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-window.location.href = mailto;
-});
+  document.getElementById("year").textContent = new Date().getFullYear();
 </script>
+
 
 </body>
 
 </html>
+
 
 
 
