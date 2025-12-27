@@ -151,25 +151,25 @@
 <section class="card">
   <h3>Project details</h3>
 
-  <form id="projectForm">
+  <form action="https://formspree.io/f/abcdwxyz" method="POST">
     <div>
       <label>Name</label>
-      <input id="name" required placeholder="Your name" />
+      <input name="name" required placeholder="Your name" />
     </div>
 
     <div>
       <label>Email</label>
-      <input id="email" type="email" required placeholder="you@email.com" />
+      <input name="email" type="email" required placeholder="you@email.com" />
     </div>
 
     <div>
       <label>What are you trying to build or solve?</label>
-      <textarea id="problem" required placeholder="Describe the problem, idea, or product..."></textarea>
+      <textarea name="problem" required></textarea>
     </div>
 
     <div>
       <label>Constraints or requirements (optional)</label>
-      <textarea id="constraints" placeholder="Dimensions, materials, budget, timeline, etc."></textarea>
+      <textarea name="constraints"></textarea>
     </div>
 
     <button class="btn" type="submit">Generate email</button>
@@ -189,36 +189,8 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
-
-  const CONTACT_TO = "juan.fadhel@nyu.edu";
-
-  document.getElementById("projectForm").addEventListener("submit", e => {
-    e.preventDefault();
-
-    const name = nameInput = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const problem = document.getElementById("problem").value;
-    const constraints = document.getElementById("constraints").value;
-
-    const subject = `New CRE8 PR project — ${name}`;
-    const body =
-`Hi CRE8 PR,
-
-My name is ${name} (${email}).
-
-PROJECT DESCRIPTION
-${problem}
-
-CONSTRAINTS / NOTES
-${constraints || "None specified."}
-
-Thanks,
-${name}`;
-
-    window.location.href =
-      `mailto:${CONTACT_TO}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-  });
 </script>
 
 </body>
 </html>
+
