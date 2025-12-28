@@ -70,6 +70,35 @@ margin:0;
 font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
 color:var(--text);
 
+ /* ================================
+   MOBILE NAV FIX
+   ================================ */
+.nav-links{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+/* Mobile behavior */
+@media (max-width: 720px){
+  .nav{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+  }
+
+  .nav-links{
+    width:100%;
+    flex-wrap:wrap;
+    justify-content:flex-start;
+  }
+
+  .nav-links .btn{
+    flex:1 1 auto;
+    text-align:center;
+  }
+}
+ 
 /* =========================================================
         EDIT: BACKGROUND STYLE
         - If you want NO grid, remove the 2 linear-gradient lines.
@@ -265,11 +294,13 @@ h1{font-size:36px}
 </a>
 
 
-  <div style="display:flex;gap:8px;align-items:center">
-    <a class="btn" href="services.html">Services</a>
-    <a class="btn" href="about.html">About</a>
-<a class="btn" href="start.html">Start a project</a>
-  </div>
+  <nav class="nav-links">
+  <a class="btn" href="index.html">Home</a>
+  <a class="btn" href="services.html">Services</a>
+  <a class="btn" href="about.html">About</a>
+  <a class="btn" href="start.html">Start a project</a>
+</nav>
+
 </header>
 
 <main id="top">
@@ -444,6 +475,7 @@ Depending on the project: CAD files, prototype(s), drawings, and a clean revisio
 </body>
 
 </html>
+
 
 
 
