@@ -70,34 +70,14 @@ margin:0;
 font-family: system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
 color:var(--text);
 
- /* ================================
-   MOBILE NAV FIX
-   ================================ */
-.nav-links{
-  display:flex;
-  gap:8px;
-  align-items:center;
+background:
+linear-gradient(var(--grid) 1px, transparent 1px),
+linear-gradient(90deg, var(--grid) 1px, transparent 1px),
+var(--bg);
+background-size: 42px 42px;
 }
 
-/* Mobile behavior */
-@media (max-width: 720px){
-  .nav{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:12px;
-  }
 
-  .nav-links{
-    width:100%;
-    flex-wrap:wrap;
-    justify-content:flex-start;
-  }
-
-  .nav-links .btn{
-    flex:1 1 auto;
-    text-align:center;
-  }
-}
  
 /* =========================================================
         EDIT: BACKGROUND STYLE
@@ -128,6 +108,35 @@ box-shadow:var(--shadow);
 position:sticky;top:16px;z-index:10;
 backdrop-filter:blur(10px);
 }
+
+/* =========================================================
+   MOBILE NAV FIX (CORRECT LOCATION)
+   ========================================================= */
+.nav-links{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+@media (max-width: 720px){
+  .nav{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+    border-radius:18px; /* kills giant pill */
+  }
+
+  .nav-links{
+    width:100%;
+    flex-wrap:wrap;
+  }
+
+  .nav-links .btn{
+    flex:1 1 auto;
+    text-align:center;
+  }
+}
+
 
 .brand{display:flex;align-items:center;gap:12px}
 .brand b{font-size:16px;letter-spacing:0.4px}
@@ -475,6 +484,7 @@ Depending on the project: CAD files, prototype(s), drawings, and a clean revisio
 </body>
 
 </html>
+
 
 
 
