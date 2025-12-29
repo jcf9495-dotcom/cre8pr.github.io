@@ -50,6 +50,34 @@ main{
       border-radius:999px;
       box-shadow:var(--shadow);
     }
+    /* ===== MOBILE NAV OVERRIDE (MATCHES INDEX) ===== */
+.nav-links{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+@media (max-width: 720px){
+  .nav{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:12px;
+
+    /* kills the giant pill on mobile */
+    border-radius:18px;
+  }
+
+  .nav-links{
+    width:100%;
+    flex-wrap:wrap;
+  }
+
+  .nav-links .btn{
+    flex:1 1 auto;
+    text-align:center;
+  }
+}
+
 
     .brand{
   display:flex;
@@ -117,12 +145,13 @@ main{
   </div>
 </a>
 
-<div style="display:flex;gap:8px;align-items:center">
+<nav class="nav-links">
   <a class="btn" href="index.html">Home</a>
-    <a class="btn" href="services.html">Services</a>
-    <a class="btn" href="about.html">About</a>
-    <a class="btn" href="start.html">Start a project</a>
-  </div>
+  <a class="btn" href="services.html">Services</a>
+  <a class="btn" href="about.html">About</a>
+  <a class="btn" href="start.html">Start a project</a>
+</nav>
+
 </header>
   
 <main>
@@ -180,6 +209,7 @@ main{
 </script>
 </body>
 </html>
+
 
 
 
