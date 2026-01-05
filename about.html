@@ -265,6 +265,22 @@ main{
     /* =========================================================
    SCROLL REVEAL ANIMATION
    ========================================================= */
+  /* =========================================================
+   CARD HOVER LIFT (DEPTH EFFECT)
+   ========================================================= */
+.card{
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.card:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.85);
+  border-color: rgba(255,255,255,0.22);
+}
+
 .reveal{
   opacity: 0;
   transform: translateY(18px);
@@ -430,6 +446,7 @@ revealElements.forEach(el => revealObserver.observe(el));
 </body>
 
 </html>
+
 
 
 
