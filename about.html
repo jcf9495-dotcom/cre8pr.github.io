@@ -425,45 +425,12 @@ const revealObserver = new IntersectionObserver(
 
 revealElements.forEach(el => revealObserver.observe(el));
 
-
-  /* =========================================================
-     FORM BEHAVIOR
-     - When you click "Generate email", it opens an email draft.
-     - Later, if you want a real backend form (no email app),
-       tell me and I’ll convert it to a proper form submit.
-     ========================================================= */
-  const contactForm = document.getElementById("contactForm");
-if(contactForm){
-  contactForm.addEventListener("submit", (e) => {
-  }
-    e.preventDefault();
-
-    const name = document.getElementById("name").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const message = document.getElementById("message").value.trim();
-
-    const subject = `CRE8 PR request — ${name}`;
-    const body =
-`Hi CRE8 PR,
-
-My name is ${name} (${email}).
-
-REQUEST
-${message}
-
-(You can reply here with any questions, timeline, and a rough quote.)
-
-Thanks,
-${name}`;
-
-    const mailto = `mailto:${encodeURIComponent(CONTACT_TO)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.location.href = mailto;
-  });
 </script>
 
 </body>
 
 </html>
+
 
 
 
