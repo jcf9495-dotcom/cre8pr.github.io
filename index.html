@@ -291,6 +291,22 @@ color:var(--muted);
 .col-6,.col-7,.col-5{grid-column:span 12}
 h1{font-size:36px}
 }
+/* =========================================================
+   SCROLL REVEAL ANIMATION
+   ========================================================= */
+.reveal{
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
 </style>
 </head>
 
@@ -344,8 +360,8 @@ h1{font-size:36px}
 <!-- =========================================================
         EDIT: HERO
         ========================================================= -->
-<section class="hero">
-<div class="card">
+<section class="hero reveal">
+<div class="card reveal">
 <!-- EDIT: main headline -->
 <h1>Bridging the gap between your innovative ideas and reality.</h1>
 
@@ -360,7 +376,7 @@ through CAD, rapid prototyping, and iteration.
 <!-- <div style="margin-top:16px"><a class="btn" href="#services">See services</a></div> -->
 </div>
 
-<div class="card">
+<div class="card reveal">
 <!-- EDIT: right-side highlights -->
 <p><b>Prototype-first</b></p>
 <p class="lead">Fast feedback. Physical results.</p>
@@ -377,14 +393,14 @@ through CAD, rapid prototyping, and iteration.
         HOW IT WORKS
         ========================================================= -->
 <section id="how" class="grid">
-<div class="card col-12">
+<div class="card reveal col-12">
 <h2 style="margin:0">How it works</h2>
 <p class="lead" style="margin:10px 0 0">
 Simple process: submit problem or solution idea → CAD → prototype → iterate → build.
 </p>
 </div>
 
-<div class="card col-7">
+<div class="card reveal col-7">
 <!-- EDIT: steps text -->
 <div class="step">
 <div class="num">1</div>
@@ -419,7 +435,7 @@ Simple process: submit problem or solution idea → CAD → prototype → iterat
 </div>
 </div>
 
-<div class="card col-5">
+<div class="card reveal col-5">
 <!-- EDIT: side description -->
 <h3 style="margin:0 0 10px">Deliverables</h3>
 <p class="lead" style="margin:0">
@@ -431,7 +447,7 @@ Depending on the project: CAD files, prototype(s), drawings, and a clean revisio
      NEW: PROJECT TIMELINE
      ========================================================= -->
 <section class="grid">
-  <div class="card col-12">
+  <div class="card reveal col-12">
     <h2 style="margin:0">Typical project timeline</h2>
     <p class="lead" style="margin:10px 0 18px">
       Timelines vary by complexity, but most projects follow this general flow.
@@ -476,7 +492,7 @@ Depending on the project: CAD files, prototype(s), drawings, and a clean revisio
         EDIT: SERVICES
         ========================================================= -->
 <section id="services">
-  <div class="card" style="
+  <div class="card reveal" style="
     display:flex;
     justify-content:space-between;
     align-items:center;
@@ -497,25 +513,25 @@ Depending on the project: CAD files, prototype(s), drawings, and a clean revisio
 
 <section class="grid">
 
-<div class="card col-6 serviceCard">
+<div class="card reveal col-6 serviceCard">
 <img src="sketch.png" alt="Idea submission / concept stage">
 <h3>1. Idea definition</h3>
 <p>We clarify constraints, success criteria, and context so the build has a real target.</p>
 </div>
 
-<div class="card col-6 serviceCard">
+<div class="card reveal col-6 serviceCard">
 <img src="cad.png" alt="CAD design">
 <h3>2. CAD design</h3>
 <p>Parametric, manufacturable CAD models designed for real-world use.</p>
 </div>
 
-<div class="card col-6 serviceCard">
+<div class="card reveal col-6 serviceCard">
 <img src="3dprint.png" alt="Prototype">
 <h3>3. Prototyping</h3>
 <p>3D printing / fabrication for fit + function testing and fast iteration.</p>
 </div>
 
-<div class="card col-6 serviceCard">
+<div class="card reveal col-6 serviceCard">
 <img src="actual.png" alt="Manufacturable design">
 <h3>4. Small-batch builds</h3>
 <p>Once validated, we produce short runs or transition the design to a manufacturer.</p>
@@ -526,14 +542,14 @@ Depending on the project: CAD files, prototype(s), drawings, and a clean revisio
      NEW: FEATURED PROJECT
      ========================================================= -->
 <section class="grid">
-  <div class="card col-12">
+  <div class="card reveal col-12">
     <h2 style="margin:0">Featured project</h2>
     <p class="lead" style="margin:10px 0 0">
       Example of a recent design-to-prototype workflow.
     </p>
   </div>
 
-  <div class="card col-7">
+  <div class="card reveal col-7">
     <h3 style="margin-top:0">Mechanical prototype development</h3>
     <p class="lead">
       This project involved taking a rough concept and developing it into a
@@ -553,7 +569,7 @@ Depending on the project: CAD files, prototype(s), drawings, and a clean revisio
     </p>
   </div>
 
-  <div class="card col-5 serviceCard">
+  <div class="card reveal col-5 serviceCard">
     <img src="non.png" alt="Example project prototype">
     <p class="lead" style="margin-top:12px">
       Concept → CAD → prototype → refined build
@@ -565,7 +581,7 @@ Depending on the project: CAD files, prototype(s), drawings, and a clean revisio
         CALL TO ACTION
         ========================================================= -->
 <section class="grid">
-  <div class="card col-12" style="text-align:center">
+  <div class="card reveal col-12" style="text-align:center">
     <h2 style="margin:0">Have a project in mind?</h2>
     <p class="lead" style="margin:12px auto; max-width:60ch">
       Tell us what you’re trying to build and we’ll help you take it
@@ -587,13 +603,35 @@ Depending on the project: CAD files, prototype(s), drawings, and a clean revisio
 </div>
 
 <script>
+  /* Footer year */
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  /* =========================================================
+     SCROLL REVEAL OBSERVER
+     ========================================================= */
+  const revealElements = document.querySelectorAll(".reveal");
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    {
+      threshold: 0.15
+    }
+  );
+
+  revealElements.forEach(el => revealObserver.observe(el));
 </script>
 
 
 </body>
 
 </html>
+
 
 
 
