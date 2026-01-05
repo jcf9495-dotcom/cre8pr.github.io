@@ -156,9 +156,41 @@
       font-size:12px;
       color:var(--muted);
     }
+    /* =========================================================
+   CARD HOVER LIFT (SAFE WITH REVEAL)
+   ========================================================= */
+.card{
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.card.reveal.visible:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.85);
+  border-color: rgba(255,255,255,0.22);
+}
+
   /* =========================================================
    ACTIVE NAV STATE
    ========================================================= */
+/* =========================================================
+   SCROLL REVEAL
+   ========================================================= */
+.reveal{
+  opacity: 0;
+  transform: translateY(18px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal.visible{
+  opacity: 1;
+  transform: translateY(0);
+}
+
 .nav .btn.active{
   background: rgba(255,255,255,0.18);
   border-color: rgba(255,255,255,0.35);
@@ -208,7 +240,7 @@
 
 <main>
 
-<section class="card">
+<section class="card reveal">
   <h1>Start a project</h1>
   <p class="lead">
     Tell us what you’re trying to build, improve, or figure out.
@@ -216,7 +248,7 @@
   </p>
 </section>
 
-<section class="card">
+<section class="card reveal">
   <h3>Project details</h3>
 
   <form action="https://formspree.io/f/xnjqlwdq" method="POST" enctype="multipart/form-data">
@@ -264,10 +296,30 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  /* =========================================================
+     SCROLL REVEAL OBSERVER
+     ========================================================= */
+  const revealElements = document.querySelectorAll(".reveal");
+
+  const revealObserver = new IntersectionObserver(
+    (entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add("visible");
+        }
+      });
+    },
+    { threshold: 0.15 }
+  );
+
+  revealElements.forEach(el => revealObserver.observe(el));
 </script>
+
 
 </body>
 </html>
+
 
 
 
